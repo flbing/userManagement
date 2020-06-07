@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.management.com.user.mapper.TrxApplyInfoMapper" >
+    <resultMap id="BaseResultMap" type="com.user.management.com.user.domain.TrxApplyInfo" >
+        <id column="apply_id" property="applyId" jdbcType="BIGINT" />
+        <result column="apply_no" property="applyNo" jdbcType="BIGINT" />
+        <result column="user_no" property="userNo" jdbcType="BIGINT" />
+        <result column="apply_status" property="applyStatus" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        apply_id, apply_no, user_no, apply_status
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM trx_apply_info
+    </select>
+
+    <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM trx_apply_info
+        WHERE apply_id = #{applyId}
+    </select>
+
+    <insert id="insert" parameterType="com.user.management.com.user.domain.TrxApplyInfo" >
+        INSERT INTO
+        trx_apply_info
+        (apply_no,user_no,apply_status)
+        VALUES
+        (#{applyNo}, #{userNo}, #{applyStatus})
+    </insert>
+
+    <update id="update" parameterType="com.user.management.com.user.domain.TrxApplyInfo" >
+        UPDATE
+        trx_apply_info
+        SET
+        <if test="applyStatus != null">apply_status = #{applyStatus},</if>
+        <if test="applyNo != null">apply_no = #{applyNo},</if>
+        <if test="userNo != null">user_no = #{userNo},</if>
+        WHERE
+        applyId = #{applyId}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM
+        trx_apply_info
+        WHERE
+        apply_id =#{applyId}
+    </delete>
+</mapper>

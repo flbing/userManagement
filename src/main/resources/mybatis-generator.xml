@@ -9,14 +9,14 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/hfanss?characterEncoding=utf-8"
-                        userId="root" password="123456">
+                        connectionURL="jdbc:mysql://localhost:3306/user_apply?characterEncoding=utf-8"
+                        userId="root" password="130213">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
         <!-- 设置Java类生成的位置 -->
-        <javaModelGenerator targetPackage="com.hfanss.blog.VO"
+        <javaModelGenerator targetPackage="com.user.domain"
                             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
@@ -28,16 +28,12 @@
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置 ***mapper.java-->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.hfanss.blog.dao" targetProject=".\src\main\java">
+                             targetPackage="com.user.dao" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 所有要生成的表名 -->
-        <table tableName="info"></table>
-        <table tableName="article"></table>
-        <table tableName="comments"></table>
-        <table tableName="links"></table>
-        <table tableName="menus"></table>
-        <table tableName="notice"></table>
-        <table tableName="articleSort"></table>
+        <table tableName="trx_apply_info1"></table>
+        <table tableName="trx_apply_info2"></table>
+
     </context>
 </generatorConfiguration>

@@ -1,4 +1,8 @@
 # userManagement
 用户管理系统
 
-初步没确定做什么，前端时userManagement，下一步集成springsecurity到项目中
+2020-05-30 初始化项目，前后端实现连通
+
+2020-06-06 mybatis 接入，实现增删改查
+
+2020-06-07 实现分库分表中表的水平切分
